@@ -2,6 +2,40 @@
 
 Run PHREEQC on the input file you are editing with one click.
 
+## Installation
+
+You need:
+
+- VS Code 1.80 or later.
+- PHREEQC for Windows, installed from the [USGS PHREEQC page](https://www.usgs.gov/software/phreeqc-version-3). The default location, `C:\Program Files\USGS`, is found automatically.
+- Python 3, to build the extension package. Node.js isn't needed.
+
+1. Clone the repository and build the package:
+
+   ```powershell
+   git clone https://gitlab.amphos21.com/miquel.iglesia/vscode-phreeqc-runner.git
+   cd vscode-phreeqc-runner
+   py package_vsix.py
+   ```
+
+   This writes `phreeqc-runner-<version>.vsix` in the same folder.
+
+2. Install it, either from a terminal:
+
+   ```powershell
+   code --install-extension phreeqc-runner-<version>.vsix
+   ```
+
+   or in VS Code: open the Extensions view (`Ctrl+Shift+X`), click the **⋯** menu at its top, choose **Install from VSIX…** and pick the file.
+
+3. Reload VS Code if it asks you to. Open a `.pqi` file: the **▷ Run PHREEQC** button should appear at the top right of the editor.
+
+If PHREEQC is installed somewhere other than `C:\Program Files\USGS`, run **Select PHREEQC Installation Folder…** from the Command Palette (`Ctrl+Shift+P`), or set `phreeqcRunner.installationPath` (see [Settings](#settings)).
+
+To update, pull the latest changes, then repeat steps 1 and 2. The new version replaces the old one.
+
+To uninstall, go to the Extensions view, find **PHREEQC Runner** and click **Uninstall**.
+
 ## Usage
 
 - Open a `.pqi`, `.phr` or `.phrq` file and click the **▷ Run PHREEQC** button at the top right of the editor, or press `Ctrl+F5`.
@@ -34,5 +68,3 @@ Edit `extension.js` or `package.json`, raise `version` in `package.json`, then r
 py package_vsix.py
 code --install-extension phreeqc-runner-<version>.vsix
 ```
-
-To uninstall, go to the Extensions view, find **PHREEQC Runner** and click **Uninstall**.
