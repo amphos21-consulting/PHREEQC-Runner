@@ -53,7 +53,7 @@ PHREEQC runs in the input file's folder. It writes `<name>.pqo` next to the inpu
 | `phreeqcRunner.outputExtension` | `.pqo` | Extension of the output file. |
 | `phreeqcRunner.inputExtensions` | `.pqi .phr .phrq` | Which files get the Run button and `Ctrl+F5`. |
 | `phreeqcRunner.saveBeforeRun` | `true` | Save the input before running. |
-| `phreeqcRunner.openAfterRun` | `none` | Open the `.pqo` (`output`) or the selected output (`selectedOutput`) after a successful run. |
+| `phreeqcRunner.openAfterRun` | `output` | Open the `.pqo` (`output`) or the selected output (`selectedOutput`) after a successful run. |
 
 ## Notes
 

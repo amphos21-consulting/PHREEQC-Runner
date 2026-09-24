@@ -136,7 +136,7 @@
             "Open the output file (.pqo) beside the input.",
             "Open the selected output file(s) written by the run beside the input."
           ],
-          "default": "none",
+          "default": "output",
           "scope": "resource",
           "order": 5,
           "description": "What to open automatically after a successful run."

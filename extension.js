@@ -169,7 +169,7 @@ async function execute(run, target) {
   log.appendLine(`Finished in ${seconds} s${warnings}.`);
   if (extraOutputs.length) log.appendLine(`Also written: ${extraOutputs.map(f => path.basename(f)).join(', ')}`);
 
-  const openAfter = cfg.get('openAfterRun', 'none');
+  const openAfter = cfg.get('openAfterRun', 'output');
   if (openAfter === 'output') await openFile(outputPath, true);
   if (openAfter === 'selectedOutput') for (const file of extraOutputs) await openFile(file, true);
 
