@@ -8,6 +8,10 @@ const path = require('path');
 
 const SECTION = 'phreeqcRunner';
 
+// Recommended companion: highlighting, autocomplete and hover help for PHREEQC files.
+const SYNTAX_EXTENSION = 'VitorCantarella.phreeqc-syntax';
+const SYNTAX_DECLINED_KEY = 'syntaxExtensionDeclined';
+
 // Places to look for the executable inside an installation folder, best first.
 // bin/Release is the plain console build; bin/ClrRelease is the .NET build with charts.
 const EXE_CANDIDATES = process.platform === 'win32'
@@ -38,9 +42,27 @@ function activate(context) {
   );
   publishInputExtensions();
   publishRunning();
+  void recommendSyntaxExtension(context);
 }
 
 function deactivate() {}
+
+/** Suggests the PHREEQC syntax extension until it is installed or the user declines it. */
+function recommendSyntaxExtension(context) {
+  if (vscode.extensions.getExtension(SYNTAX_EXTENSION) || context.globalState.get(SYNTAX_DECLINED_KEY)) return;
+  return notify('info',
+    'PHREEQC Runner recommends the PHREEQC extension by Vitor Cantarella for syntax highlighting, autocomplete and hover help in input files.', {
+      'Install': async () => {
+        try {
+          await vscode.commands.executeCommand('workbench.extensions.installExtension', SYNTAX_EXTENSION);
+        } catch (error) {
+          vscode.window.showErrorMessage(`The PHREEQC extension could not be installed: ${error.message}`);
+        }
+      },
+      'Show Extension': () => vscode.commands.executeCommand('extension.open', SYNTAX_EXTENSION),
+      "Don't Ask Again": () => context.globalState.update(SYNTAX_DECLINED_KEY, true),
+    });
+}
 
 /** Runs PHREEQC on `uri`, or on the active editor's file when called without one. */
 async function runPhreeqc(uri) {

@@ -9,6 +9,7 @@ You need:
 - VS Code 1.80 or later.
 - PHREEQC for Windows, installed from the [USGS PHREEQC page](https://www.usgs.gov/software/phreeqc-version-3). The default location, `C:\Program Files\USGS`, is found automatically.
 - Python 3, to build the extension package. Node.js isn't needed.
+- Recommended: the [PHREEQC extension](https://marketplace.visualstudio.com/items?itemName=VitorCantarella.phreeqc-syntax) by Vitor Cantarella, for syntax highlighting, autocomplete and hover help. If it isn't installed, PHREEQC Runner offers to install it at startup. Choose **Don't Ask Again** to stop the offer.
 
 1. Clone the repository and build the package:
 
