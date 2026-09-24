@@ -1,0 +1,147 @@
+{
+  "name": "phreeqc-runner",
+  "displayName": "PHREEQC Runner",
+  "description": "Run PHREEQC on the current input file with one click.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "phreeqc",
+    "geochemistry"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "PHREEQC Runner starts the PHREEQC executable, so it only runs in trusted workspaces."
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "phreeqcRunner.run",
+        "title": "Run PHREEQC",
+        "icon": "$(play)"
+      },
+      {
+        "command": "phreeqcRunner.stop",
+        "title": "Stop PHREEQC",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "phreeqcRunner.selectInstallation",
+        "title": "Select PHREEQC Installation Folder…"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "phreeqcRunner.run",
+          "when": "resourceScheme == file && resourceExtname in phreeqcRunner.inputExtensions && resource not in phreeqcRunner.runningFiles",
+          "group": "navigation"
+        },
+        {
+          "command": "phreeqcRunner.stop",
+          "when": "resource in phreeqcRunner.runningFiles",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "phreeqcRunner.run",
+          "when": "resourceScheme == file && resourceExtname in phreeqcRunner.inputExtensions",
+          "group": "phreeqc"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "phreeqcRunner.run",
+          "when": "resourceScheme == file"
+        },
+        {
+          "command": "phreeqcRunner.stop",
+          "when": "phreeqcRunner.running"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "phreeqcRunner.run",
+        "key": "ctrl+f5",
+        "when": "editorTextFocus && resourceExtname in phreeqcRunner.inputExtensions"
+      }
+    ],
+    "configuration": {
+      "title": "PHREEQC Runner",
+      "properties": {
+        "phreeqcRunner.installationPath": {
+          "type": "string",
+          "default": "",
+          "scope": "machine-overridable",
+          "order": 0,
+          "markdownDescription": "Path to your PHREEQC installation folder, e.g. `C:\\Program Files\\USGS\\phreeqc-3.7.3-15968-x64`, or directly to the `phreeqc` executable. Leave empty to use the newest installation under `C:\\Program Files\\USGS`, or `phreeqc` from the PATH."
+        },
+        "phreeqcRunner.database": {
+          "type": "string",
+          "default": "",
+          "scope": "resource",
+          "order": 1,
+          "markdownDescription": "Database for input files that have no `DATABASE` line: an absolute path, or one relative to the input file's folder. Leave empty to use `database\\phreeqc.dat` from the installation. A `DATABASE` line in the input always wins."
+        },
+        "phreeqcRunner.outputExtension": {
+          "type": "string",
+          "default": ".pqo",
+          "scope": "resource",
+          "order": 2,
+          "markdownDescription": "Extension of the output file, written next to the input under the same name (`model.pqi` → `model.pqo`)."
+        },
+        "phreeqcRunner.inputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".pqi",
+            ".phr",
+            ".phrq"
+          ],
+          "scope": "window",
+          "order": 3,
+          "markdownDescription": "File extensions that get the **Run PHREEQC** button and `Ctrl+F5`. Any other file can still be run from the Command Palette."
+        },
+        "phreeqcRunner.saveBeforeRun": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "order": 4,
+          "description": "Save the input file before running PHREEQC."
+        },
+        "phreeqcRunner.openAfterRun": {
+          "type": "string",
+          "enum": [
+            "none",
+            "output",
+            "selectedOutput"
+          ],
+          "enumDescriptions": [
+            "Only show a notification with buttons to open the results.",
+            "Open the output file (.pqo) beside the input.",
+            "Open the selected output file(s) written by the run beside the input."
+          ],
+          "default": "none",
+          "scope": "resource",
+          "order": 5,
+          "description": "What to open automatically after a successful run."
+        }
+      }
+    }
+  }
+}
