@@ -25,6 +25,62 @@
     }
   },
   "contributes": {
+    "languages": [
+      {
+        "id": "phreeqc",
+        "aliases": [
+          "PHREEQC",
+          "phreeqc"
+        ],
+        "extensions": [
+          ".pqi",
+          ".ppi",
+          ".phr",
+          ".phrq"
+        ],
+        "icon": {
+          "light": "./images/phreeqc.png",
+          "dark": "./images/phreeqc.png"
+        }
+      },
+      {
+        "id": "phreeqc-output",
+        "aliases": [
+          "PHREEQC Output"
+        ],
+        "filenamePatterns": [
+          "*.out",
+          "*.pqo"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./images/phreeqc-output.png",
+          "dark": "./images/phreeqc-output.png"
+        }
+      },
+      {
+        "id": "phreeqc-database",
+        "aliases": [
+          "PHREEQC Database"
+        ],
+        "filenamePatterns": [
+          "*.dat"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "phreeqc-output",
+        "scopeName": "source.phreeqc.output",
+        "path": "./syntaxes/phreeqc-output.tmLanguage.json"
+      },
+      {
+        "language": "phreeqc-database",
+        "scopeName": "source.phreeqc.database",
+        "path": "./syntaxes/phreeqc-database.tmLanguage.json"
+      }
+    ],
     "commands": [
       {
         "command": "phreeqcRunner.run",
@@ -110,6 +166,7 @@
           },
           "default": [
             ".pqi",
+            ".ppi",
             ".phr",
             ".phrq"
           ],

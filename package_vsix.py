@@ -9,13 +9,18 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 HERE = Path(__file__).resolve().parent
-FILES = ["package.json", "extension.js", "README.md"]
+FILES = [
+    "package.json", "extension.js", "README.md", "language-configuration.json",
+    "images/phreeqc.png", "images/phreeqc-output.png",
+    "syntaxes/phreeqc-output.tmLanguage.json", "syntaxes/phreeqc-database.tmLanguage.json",
+]
 
 CONTENT_TYPES = """<?xml version="1.0" encoding="utf-8"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
   <Default Extension=".json" ContentType="application/json"/>
   <Default Extension=".js" ContentType="application/javascript"/>
   <Default Extension=".md" ContentType="text/markdown"/>
+  <Default Extension=".png" ContentType="image/png"/>
   <Default Extension=".vsixmanifest" ContentType="text/xml"/>
 </Types>
 """

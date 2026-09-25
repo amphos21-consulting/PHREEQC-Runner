@@ -1,0 +1,5 @@
+{
+  "name": "PHREEQC Output",
+  "scopeName": "source.phreeqc.output",
+  "patterns": [{ "include": "source.phreeqc" }]
+}

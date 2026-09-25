@@ -1,0 +1,5 @@
+{
+  "name": "PHREEQC Database",
+  "scopeName": "source.phreeqc.database",
+  "patterns": [{ "include": "source.phreeqc" }]
+}
