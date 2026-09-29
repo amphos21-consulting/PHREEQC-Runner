@@ -2,7 +2,7 @@
   "name": "phreeqc-runner",
   "displayName": "PHREEQC Runner",
   "description": "Run PHREEQC on the current input file with one click.\nDeveloped by Miquel de la Iglesia at Amphos 21 Consulting S.L. (https://www.amphos21.com)",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "publisher": "Amphos21ConsultingSL",
   "author": {
     "name": "Miquel de la Iglesia",
