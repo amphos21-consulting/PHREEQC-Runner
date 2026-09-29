@@ -3,7 +3,7 @@
   "displayName": "PHREEQC Runner",
   "description": "Run PHREEQC on the current input file with one click.",
   "version": "0.1.0",
-  "publisher": "local",
+  "publisher": "Amphos 21 Consulting S.L.",
   "engines": {
     "vscode": "^1.80.0"
   },
