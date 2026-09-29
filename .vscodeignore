@@ -1,0 +1,8 @@
+.github/**
+.vscode/**
+example/**
+package_vsix.py
+**/*.vsix
+**/*.pqo
+**/*.out
+**/*.log

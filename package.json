@@ -3,16 +3,34 @@
   "displayName": "PHREEQC Runner",
   "description": "Run PHREEQC on the current input file with one click.",
   "version": "1.0.0",
-  "publisher": "Amphos 21 Consulting S.L.",
+  "publisher": "Amphos21ConsultingSL",
+  "author": {
+    "name": "Miquel de la Iglesia",
+    "url": "https://github.com/miquel25"
+  },
+  "license": "GPL-3.0-or-later",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amphos21-consulting/PHREEQC-Runner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amphos21-consulting/PHREEQC-Runner/issues"
+  },
+  "homepage": "https://github.com/amphos21-consulting/PHREEQC-Runner#readme",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
+    "Programming Languages",
     "Other"
   ],
   "keywords": [
     "phreeqc",
-    "geochemistry"
+    "geochemistry",
+    "hydrogeochemistry",
+    "usgs",
+    "pqi"
   ],
   "main": "./extension.js",
   "activationEvents": [
@@ -21,7 +39,7 @@
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": false,
-      "description": "PHREEQC Runner starts the PHREEQC executable, so it only runs in trusted workspaces."
+      "description": "PHREEQC Runner starts the PHREEQC executable, so it only runs in trusted workspaces. Developed by Miquel de la Iglesia at Amphos 21 Consulting S.L. (https://www.amphos21.com)"
     }
   },
   "contributes": {
