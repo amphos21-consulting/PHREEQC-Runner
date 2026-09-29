@@ -49,8 +49,14 @@ MANIFEST = """<?xml version="1.0" encoding="utf-8"?>
     <Description xml:space="preserve">{description}</Description>
     <Tags>{tags}</Tags>
     <Categories>{categories}</Categories>
+    <GalleryFlags>Public</GalleryFlags>
     <Properties>
       <Property Id="Microsoft.VisualStudio.Code.Engine" Value="{engine}"/>
+      <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="{repository}"/>
+      <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="{repository}"/>
+      <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="{repository}"/>
+      <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="{bugs}"/>
+      <Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="{homepage}"/>
     </Properties>
     <License>extension/LICENSE.txt</License>
     <Icon>extension/{icon}</Icon>
@@ -82,6 +88,9 @@ def main():
         "tags": ",".join(pkg.get("keywords", [])),
         "categories": ",".join(pkg.get("categories", [])),
         "icon": pkg["icon"],
+        "repository": pkg["repository"]["url"],
+        "bugs": pkg["bugs"]["url"],
+        "homepage": pkg["homepage"],
     }
     manifest = MANIFEST.format(**{k: escape(v, {'"': "&quot;"}) for k, v in fields.items()})
     target = HERE / f"{pkg['name']}-{pkg['version']}.vsix"

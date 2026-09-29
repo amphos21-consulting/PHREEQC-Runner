@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+
+- Publish the extension publicly on the VS Code Marketplace.
+- Add links to the source code and issue tracker to the Marketplace page.
+
 ## 1.0.0
 
 - First release on the VS Code Marketplace and Open VSX.

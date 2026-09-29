@@ -1,7 +1,7 @@
 {
   "name": "phreeqc-runner",
   "displayName": "PHREEQC Runner",
-  "description": "Run PHREEQC on the current input file with one click.",
+  "description": "Run PHREEQC on the current input file with one click.\nDeveloped by Miquel de la Iglesia at Amphos 21 Consulting S.L. (https://www.amphos21.com)",
   "version": "1.0.0",
   "publisher": "Amphos21ConsultingSL",
   "author": {
@@ -39,7 +39,7 @@
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": false,
-      "description": "PHREEQC Runner starts the PHREEQC executable, so it only runs in trusted workspaces. Developed by Miquel de la Iglesia at Amphos 21 Consulting S.L. (https://www.amphos21.com)"
+      "description": "PHREEQC Runner starts the PHREEQC executable, so it only runs in trusted workspaces."
     }
   },
   "contributes": {
